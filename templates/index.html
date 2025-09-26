@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time Chat</title>
+</head>
+<body>
+  <h2>Real-Time Chat Application</h2>
+
+  <!-- 登录/用户名 -->
+  <label>Username: <input id="username" autocomplete="off"></label>
+  <label>Password: <input id="password" type="password" 
+autocomplete="off"></label>
+  <button onclick="login()">Login</button>
+  <p id="loginStatus"></p>
+  <br>
+
+  <!-- 收件人（私聊用） -->
+  <label>Recipient (for private msg): <input id="recipient" 
+autocomplete="off"></label>
+  <br><br>
+
+  <!-- 聊天消息 -->
+  <ul id="messages"></ul>
+  <input id="myMessage" autocomplete="off">
+  <button onclick="sendGroupMessage()">Send Group</button>
+  <button onclick="sendPrivateMessage()">Send Private</button>
+
+  <!-- Socket.IO -->
+  <script 
+src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
+  <script>
+    var socket = io();
+    var token = null;
+
+    // 登录获取 JWT
+    async function login() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      let resp = await fetch("/login", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({username: username, password: password})
+      });
+
+      let data = await resp.json();
+      if (resp.ok) {
+        token = data.token;
+        document.getElementById("loginStatus").innerText = "✅ Login 
+success, JWT received.";
+        socket.emit("join", username);
+      } else {
+        document.getElementById("loginStatus").innerText = "❌ Login 
+failed: " + data.msg;
+      }
+    }
+
+    // 群聊消息
+    function sendGroupMessage() {
+      var username = document.getElementById("username").value || 
+"Anonymous";
+      var msg = document.getElementById("myMessage").value;
+      if (msg.trim() === "") return;
+      socket.send(username + ": " + msg);
+      document.getElementById("myMessage").value = "";
+    }
+
+    // 私聊消息
+    function sendPrivateMessage() {
+      var from = document.getElementById("username").value;
+      var to = document.getElementById("recipient").value;
+      var msg = document.getElementById("myMessage").value;
+      if (!from || !to || msg.trim() === "") return;
+      socket.emit("private_message", {from: from, to: to, message: msg});
+      addMessage("[Private to " + to + "] " + from + ": " + msg);
+      document.getElementById("myMessage").value = "";
+    }
+
+    // 接收群聊消息
+    socket.on("message", function(msg) {
+      addMessage(msg);
+    });
+
+    // 接收私聊消息
+    socket.on("private_message", function(msg) {
+      addMessage(msg);
+    });
+
+    // 辅助函数：往消息列表加一行
+    function addMessage(msg) {
+      var li = document.createElement("li");
+      li.innerHTML = msg;
+      document.getElementById("messages").appendChild(li);
+    }
+  </script>
+</body>
+</html>
+
