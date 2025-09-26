@@ -1,0 +1,35 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# macOS system files
+.DS_Store
+
+# Editor settings
+.vscode/
+.idea/
+
+# Backup / temp files
+*.save
+*.swp
+*.swo
+*~
+
+# GitHub Actions cache
+.github/workflows/*.save
+
