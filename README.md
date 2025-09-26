@@ -1,14 +1,17 @@
-# Flask Chat App
+# Real-Time Online Chat Application
 
-A minimal real-time chat application using Flask and Flask-SocketIO.
+A real-time chat system built with **Python, Flask, and WebSockets (Flask-SocketIO)**.  
+Supports **group messaging** and **private messaging**, with secure authentication via **JWT + Flask-Login**.
 
-## How to Run
+---
 
-```bash
-pip install -r requirements.txt
-python app.py
-```
+## 🚀 Features
+- Real-time communication using WebSockets
+- Group chat (all connected users)
+- Private messaging (one-to-one)
+- JWT-based authentication
+- Flask-Login session management
 
-Then open http://127.0.0.1:5000 in your browser.
+---
 
-Open multiple tabs to simulate multiple users chatting in real time.
+## 📂 Project Structure
