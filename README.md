@@ -21,3 +21,11 @@ Clone the repository and install dependencies:
 git clone https://github.com/miranda1225/Real-Time-Online-Chat-Application.git
 cd Real-Time-Online-Chat-Application
 pip install -r requirements.txt
+
+
+## 💬 Demo Screenshot
+
+### Login & Messaging Interface
+![Chat Application Demo](https://github.com/user-attachments/assets/fe7f8b3a-e0c2-4a68-8a5e-ffdc1db6f531)
+
+
