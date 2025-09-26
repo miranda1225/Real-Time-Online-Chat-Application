@@ -1,17 +1,22 @@
 # Real-Time Online Chat Application
 
-A real-time chat system built with **Python, Flask, and WebSockets (Flask-SocketIO)**.  
-Supports **group messaging** and **private messaging**, with secure authentication via **JWT + Flask-Login**.
+A real-time web chat system built with **Python (Flask, WebSockets)**, supporting multiple users, authentication, and concurrent messaging. Includes CI/CD pipeline with GitHub Actions for automated testing.
 
 ---
 
 ## 🚀 Features
-- Real-time communication using WebSockets
-- Group chat (all connected users)
-- Private messaging (one-to-one)
-- JWT-based authentication
-- Flask-Login session management
+- Real-time chat with **Flask-SocketIO**
+- User authentication with **Flask-Login** and **JWT (flask-jwt-extended)**
+- Group and private messaging
+- Scalable with **Eventlet** for concurrency
+- Unit & integration tests with **pytest**
+- Continuous Integration using **GitHub Actions**
 
 ---
 
-## 📂 Project Structure
+## 📦 Installation
+Clone the repository and install dependencies:
+```bash
+git clone https://github.com/miranda1225/Real-Time-Online-Chat-Application.git
+cd Real-Time-Online-Chat-Application
+pip install -r requirements.txt
