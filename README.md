@@ -27,7 +27,5 @@ pip install -r requirements.txt
 ## 💬 Demo Screenshot
 
 ### Login & Messaging Interface
-[![Chat Application Demo](https://github.com/user-attachments/assets/fe7f8b3a-e0c2-4a68-8a5e-ffdc1db6f531)](https://github.com/user-attachments/assets/fe7f8b3a-e0c2-4a68-8a5e-ffdc1db6f531)
-
-
+[![Chat Application Demo](https://private-user-images.githubusercontent.com/181042019/494583848-b207df8e-167d-4cb0-ac9e-2f9bf4063cdb.png)](https://private-user-images.githubusercontent.com/181042019/494583848-b207df8e-167d-4cb0-ac9e-2f9bf4063cdb.png)
 
