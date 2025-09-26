@@ -1,6 +1,6 @@
 # Real-Time Online Chat Application
 
-A real-time web chat system built with **Python (Flask, WebSockets)**, supporting multiple users, authentication, and concurrent messaging. Includes CI/CD pipeline with GitHub Actions for automated testing.
+A real-time chat application built with **Python, Flask, and WebSockets**, supporting multiple users, authentication, and concurrent messaging. Includes CI/CD pipeline with GitHub Actions for automated testing.
 
 ---
 
@@ -16,6 +16,7 @@ A real-time web chat system built with **Python (Flask, WebSockets)**, supportin
 
 ## 📦 Installation
 Clone the repository and install dependencies:
+
 ```bash
 git clone https://github.com/miranda1225/Real-Time-Online-Chat-Application.git
 cd Real-Time-Online-Chat-Application
